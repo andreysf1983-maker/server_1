@@ -1,0 +1,100 @@
+<Window x:Class="LegionForge.Manager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LEGIONFORGE :: Server Manager  ·  WoW Legion 7.3.5 (26124)"
+        Height="720" Width="1180" WindowStartupLocation="CenterScreen"
+        Background="{StaticResource Lf.Background}" Foreground="{StaticResource Lf.Text}"
+        FontFamily="Segoe UI" Closing="Window_Closing">
+  <Grid Margin="12">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <!-- Шапка -->
+    <Border Grid.Row="0" Background="{StaticResource Lf.Panel}" BorderBrush="{StaticResource Lf.Border}"
+            BorderThickness="1" CornerRadius="8" Padding="16,12">
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Text="⚒" FontSize="30" Foreground="{StaticResource Lf.Accent}" VerticalAlignment="Center"/>
+        <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+          <TextBlock Text="LEGIONFORGE" FontSize="22" FontWeight="Black" Foreground="{StaticResource Lf.Accent}"/>
+          <TextBlock Text="Автономная серверная платформа World of Warcraft: Legion 7.3.5 · Build 26124"
+                     Foreground="{StaticResource Lf.Muted}" FontSize="12"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="32,0,0,0" VerticalAlignment="Center">
+          <Border Background="#101826" CornerRadius="6" Padding="12,6" Margin="4">
+            <StackPanel>
+              <TextBlock Text="ОНЛАЙН" Foreground="{StaticResource Lf.Muted}" FontSize="10"/>
+              <TextBlock x:Name="TxtOnline" Text="0" FontSize="20" FontWeight="Bold" Foreground="{StaticResource Lf.Success}"/>
+            </StackPanel>
+          </Border>
+          <Border Background="#101826" CornerRadius="6" Padding="12,6" Margin="4">
+            <StackPanel>
+              <TextBlock Text="АККАУНТОВ" Foreground="{StaticResource Lf.Muted}" FontSize="10"/>
+              <TextBlock x:Name="TxtAccounts" Text="0" FontSize="20" FontWeight="Bold"/>
+            </StackPanel>
+          </Border>
+          <Border Background="#101826" CornerRadius="6" Padding="12,6" Margin="4">
+            <StackPanel>
+              <TextBlock Text="ПЕРСОНАЖЕЙ" Foreground="{StaticResource Lf.Muted}" FontSize="10"/>
+              <TextBlock x:Name="TxtChars" Text="0" FontSize="20" FontWeight="Bold"/>
+            </StackPanel>
+          </Border>
+          <Border Background="#101826" CornerRadius="6" Padding="12,6" Margin="4">
+            <StackPanel>
+              <TextBlock Text="GAMEBUILD" Foreground="{StaticResource Lf.Muted}" FontSize="10"/>
+              <TextBlock x:Name="TxtBuild" Text="26124" FontSize="20" FontWeight="Bold" Foreground="{StaticResource Lf.Accent2}"/>
+            </StackPanel>
+          </Border>
+        </StackPanel>
+      </StackPanel>
+    </Border>
+
+    <!-- Панель управления -->
+    <WrapPanel Grid.Row="1" Margin="0,10,0,0">
+      <Button x:Name="BtnStart"  Content="▶  Старт сервера"            Style="{StaticResource Lf.Button.Primary}" Click="BtnStart_Click"/>
+      <Button x:Name="BtnStop"   Content="■  Стоп сервера"              Style="{StaticResource Lf.Button}" Click="BtnStop_Click"/>
+      <Button x:Name="BtnReboot" Content="↻  Мягкий ребут ядра (60 сек)" Style="{StaticResource Lf.Button}" Click="BtnReboot_Click"/>
+      <Button x:Name="BtnSave"   Content="💾  Сохранить игроков и БД"    Style="{StaticResource Lf.Button}" Click="BtnSave_Click"/>
+      <Button x:Name="BtnBackup" Content="🗄  Бэкап БД"                  Style="{StaticResource Lf.Button}" Click="BtnBackup_Click"/>
+      <Button x:Name="BtnPanel"  Content="🌐  Открыть админ-панель"      Style="{StaticResource Lf.Button}" Click="BtnPanel_Click"/>
+      <CheckBox x:Name="ChkAutoRestart" Content="Авто-рестарт worldserver при падении" IsChecked="True"
+                VerticalAlignment="Center" Margin="12,0,0,0" Foreground="{StaticResource Lf.Muted}"/>
+    </WrapPanel>
+
+    <!-- Логи -->
+    <TabControl Grid.Row="2" Margin="0,10,0,0" Background="{StaticResource Lf.Panel}"
+                BorderBrush="{StaticResource Lf.Border}" Foreground="{StaticResource Lf.Text}">
+      <TabItem Header="WorldServer">
+        <FlowDocumentScrollViewer x:Name="LogWorld" Background="#0A0D13" IsSelectionEnabled="True"/>
+      </TabItem>
+      <TabItem Header="BNetServer">
+        <FlowDocumentScrollViewer x:Name="LogBnet" Background="#0A0D13" IsSelectionEnabled="True"/>
+      </TabItem>
+      <TabItem Header="MySQL">
+        <FlowDocumentScrollViewer x:Name="LogMySql" Background="#0A0D13" IsSelectionEnabled="True"/>
+      </TabItem>
+      <TabItem Header="Консоль GM">
+        <Grid Background="#0A0D13">
+          <Grid.RowDefinitions><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+          <FlowDocumentScrollViewer x:Name="LogConsole" Grid.Row="0"/>
+          <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="6">
+            <TextBox x:Name="TxtCommand" Width="640" Padding="6" Background="#101826"
+                     Foreground="{StaticResource Lf.Text}" BorderBrush="{StaticResource Lf.Border}"
+                     KeyDown="TxtCommand_KeyDown"/>
+            <Button Content="Отправить в worldserver" Style="{StaticResource Lf.Button}" Click="BtnSendCommand_Click"/>
+          </StackPanel>
+        </Grid>
+      </TabItem>
+    </TabControl>
+
+    <!-- Статус-бар -->
+    <Border Grid.Row="3" Margin="0,10,0,0" Background="{StaticResource Lf.Panel}"
+            BorderBrush="{StaticResource Lf.Border}" BorderThickness="1" CornerRadius="6" Padding="10,6">
+      <TextBlock x:Name="TxtStatus" Text="Готов к работе. Нажмите «Старт сервера»."
+                 Foreground="{StaticResource Lf.Muted}"/>
+    </Border>
+  </Grid>
+</Window>

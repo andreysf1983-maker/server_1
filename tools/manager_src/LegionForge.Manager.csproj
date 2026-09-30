@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- =====================================================================
+       LEGIONFORGE :: LegionForge Manager (бывший Start_Argus.exe)
+       Десктопная оболочка сервера: mysqld + bnetserver + worldserver,
+       логи в реальном времени с подсветкой, авто-рестарт ядра при падении.
+       Target: .NET 8 (win-x64, WPF)
+       ===================================================================== -->
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>LegionForge_Manager</AssemblyName>
+    <RootNamespace>LegionForge.Manager</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>3.1.0</Version>
+    <Company>LEGIONFORGE</Company>
+    <Product>LEGIONFORGE Server Manager</Product>
+    <Description>GUI-менеджер серверной платформы World of Warcraft: Legion 7.3.5 (Build 26124)</Description>
+    <Copyright>LEGIONFORGE 2026</Copyright>
+    <SatelliteResourceLanguages>ru</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.4.0" />
+  </ItemGroup>
+
+</Project>

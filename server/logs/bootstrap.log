@@ -1,0 +1,26 @@
+  [+] РЎРєР°С‡РёРІР°СЋ Portable 7-Zip ...
+tar.exe: Error opening archive: Unrecognized archive format
+      СЂР°СЃРїР°РєРѕРІР°РЅРѕ РІ D:\legionforge-wow-server-development\LEGIONFORGE\tools\7zip
+Invoke-WebRequest : 
+404 Not Found
+404 Not Found
+nginx/1.24.0 (Ubuntu)
+At D:\legionforge-wow-server-development\LEGIONFORGE\tools\download_tools.ps1:36 char:9
++         Invoke-WebRequest "https://www.7-zip.org/a/7z2408-extra.7z" - ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc 
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+  [+] РЎРєР°С‡РёРІР°СЋ Portable 7-Zip ...
+tar.exe: Error opening archive: Unrecognized archive format
+      СЂР°СЃРїР°РєРѕРІР°РЅРѕ РІ D:\legionforge-wow-server-development\LEGIONFORGE\tools\7zip
+Invoke-WebRequest : 
+404 Not Found
+404 Not Found
+nginx/1.24.0 (Ubuntu)
+At D:\legionforge-wow-server-development\LEGIONFORGE\tools\download_tools.ps1:36 char:9
++         Invoke-WebRequest "https://www.7-zip.org/a/7z2408-extra.7z" - ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], WebExc 
+   eption
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand

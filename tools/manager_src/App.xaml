@@ -1,0 +1,33 @@
+<Application x:Class="LegionForge.Manager.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+  <Application.Resources>
+    <SolidColorBrush x:Key="Lf.Background"  Color="#0B0E14"/>
+    <SolidColorBrush x:Key="Lf.Panel"       Color="#141A24"/>
+    <SolidColorBrush x:Key="Lf.Border"      Color="#263042"/>
+    <SolidColorBrush x:Key="Lf.Accent"      Color="#F5A623"/>
+    <SolidColorBrush x:Key="Lf.Accent2"     Color="#4FC3F7"/>
+    <SolidColorBrush x:Key="Lf.Text"        Color="#E6EDF7"/>
+    <SolidColorBrush x:Key="Lf.Muted"       Color="#8A97AC"/>
+    <SolidColorBrush x:Key="Lf.Success"     Color="#3DDC84"/>
+    <SolidColorBrush x:Key="Lf.Error"       Color="#FF5A5A"/>
+
+    <Style TargetType="Button" x:Key="Lf.Button">
+      <Setter Property="Background" Value="{StaticResource Lf.Panel}"/>
+      <Setter Property="Foreground" Value="{StaticResource Lf.Text}"/>
+      <Setter Property="BorderBrush" Value="{StaticResource Lf.Border}"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Padding" Value="14,8"/>
+      <Setter Property="Margin" Value="4"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="FontSize" Value="13"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="Lf.Button.Primary" BasedOn="{StaticResource Lf.Button}">
+      <Setter Property="Background" Value="{StaticResource Lf.Accent}"/>
+      <Setter Property="Foreground" Value="#1A1206"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+  </Application.Resources>
+</Application>

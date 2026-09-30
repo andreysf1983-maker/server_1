@@ -1,0 +1,50 @@
+{
+  "$comment": "LEGIONFORGE :: манифест платформы. Его читает tools/bootstrap.ps1. Файл отсутствовал в репозитории, из-за чего bootstrap.ps1 бросал 'project.json is missing' и ЛЮБОЙ .bat-лаунчер падал на первом шаге.",
+  "project": {
+    "name": "LEGIONFORGE",
+    "version": "3.1.0",
+    "clientVersion": "7.3.5",
+    "clientBuild": 26124
+  },
+  "directories": {
+    "tools": "tools",
+    "downloads": "cache/downloads",
+    "serverSource": "source",
+    "serverBuild": "server/build",
+    "serverRuntime": "server/bin",
+    "database": "server/database",
+    "logs": "server/logs",
+    "backups": "server/backups",
+    "patches": "patches",
+    "custom": "custom"
+  },
+  "toolchain": {
+    "nodeMajor": 20,
+    "mariadbVersion": "11.4.5",
+    "dependencies": {
+      "boost": {
+        "version": "1.86.0",
+        "variant": "msvc-14.3-64",
+        "installer": "boost_1_86_0-msvc-14.3-64.exe",
+        "url": "https://archives.boost.io/release/1.86.0/binaries/boost_1_86_0-msvc-14.3-64.exe"
+      },
+      "openssl": {
+        "version": "3.0.15",
+        "url": "https://slproweb.com/download/Win64OpenSSL-3_0_15.zip"
+      },
+      "innoextract": {
+        "url": "https://github.com/dscharrer/innoextract/releases/download/1.9/innoextract-1.9-windows.zip"
+      }
+    }
+  },
+  "build": {
+    "generator": "Visual Studio 17 2022",
+    "architecture": "x64",
+    "configuration": "Release"
+  },
+  "customMods": null,
+  "panel": {
+    "port": 3000,
+    "mode": "production"
+  }
+}
